@@ -1,7 +1,6 @@
 // Date: 03/08/2021
 
 import { CardCarousal } from "@/components/CardCarousal";
-import ThemeSwitch from "@/components/themeSwitch";
 import { Cover } from "@/components/ui/cover";
 import Button3D from "@/components/ui/homebutton";
 
