@@ -7,7 +7,14 @@ import Button3D from "@/components/ui/homebutton";
 // Note: Home Page Component
 export default function Home() {
   return (
-    <div className="overflow-hidden flex flex-col w-screen min-h-screen dark:text-white overflow-y-auto">
+    <div
+      className="overflow-hidden back flex flex-col w-screen min-h-screen dark:text-white overflow-y-auto"
+      // style={{
+      //   backgroundImage: 'url("https://imgs.search.brave.com/HcyuGlMo2oOjNlNSroTtDGy975gVzpq3a3JwAwXOZWQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDgwMTc5/NzMuanBn")',
+      //   backgroundSize: '',
+      //   backgroundPosition: 'center',
+      // }}
+    >
       <div>
         <h1 className="top-0 left-0 m-4 p-1 bg-clip-text text-3xl font-bold text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
           Aword
