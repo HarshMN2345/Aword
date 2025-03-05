@@ -32,6 +32,9 @@ export default function Home() {
       <div className="mt-20 mb-10 px-4">
         <CardCarousal/>
       </div>
+      <div className="text-center py-4 text-neutral-500 dark:text-neutral-400 mt-auto">
+        Made By Harsh Mahajan
+      </div>
     </div>
   );
 }
