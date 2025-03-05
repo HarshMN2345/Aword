@@ -37,8 +37,8 @@ export default function RootLayout({
           >
             <div className="absolute top-0 right-0 m-4 p-1">
      <ThemeSwitch/>
-   </div>
-            {children}
+   </div>   <div className="scrollbar-hidden">{children}</div>
+
           </ThemeProvider>
       </body>
     </html>

@@ -4,6 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -44,7 +45,17 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
 
+  .scrollbar-hidden {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+}
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
