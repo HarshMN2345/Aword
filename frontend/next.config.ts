@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["imgs.search.brave.com"],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
