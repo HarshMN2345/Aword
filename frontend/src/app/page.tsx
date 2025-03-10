@@ -21,6 +21,7 @@ export default function Home() {
         </h1>
       </div>
       <div className="flex flex-col justify-center items-center h-screen">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">⚡</h1>
         <h1 className="text-4xl md:text-4xl lg:text-7xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
           Chat With Your Peers <br /> at{" "}
           <Cover>
@@ -33,7 +34,7 @@ export default function Home() {
         <CardCarousal/>
       </div>
       <div className="text-center py-4 text-neutral-500 dark:text-neutral-400 mt-auto">
-        Made By Harsh Mahajan
+        <span>⚡</span>Made By Harsh Mahajan
       </div>
     </div>
   );

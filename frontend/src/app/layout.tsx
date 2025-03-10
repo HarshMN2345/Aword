@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import ThemeSwitch from "@/components/themeSwitch";
+import SessionButton from "@/components/SessionButton";
+import { getServerSession } from "next-auth";
+import { authOptions, CustomSession } from "./api/auth/[...nextauth]/options";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,11 +22,12 @@ export const metadata: Metadata = {
   description: "To chat with the real ones",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session:CustomSession|null=await getServerSession(authOptions);
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -35,8 +39,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="absolute top-0 right-0 m-4 p-1">
+            <div className="absolute top-0 flex flex-row items-center gap-2 right-0 m-4 p-1">
      <ThemeSwitch/>
+     <SessionButton session={session} /> {/* Pass session to client component */}
    </div>   <div className="scrollbar-hidden">{children}</div>
 
           </ThemeProvider>
