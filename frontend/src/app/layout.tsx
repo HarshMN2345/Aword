@@ -41,7 +41,8 @@ export default async function RootLayout({
           >
             <div className="absolute top-0 flex flex-row items-center gap-2 right-0 m-4 p-1">
      <ThemeSwitch/>
-     <SessionButton session={session} /> {/* Pass session to client component */}
+     <SessionButton session={session} /> 
+     {/* Pass session to client component */}
    </div>   <div className="scrollbar-hidden">{children}</div>
 
           </ThemeProvider>
