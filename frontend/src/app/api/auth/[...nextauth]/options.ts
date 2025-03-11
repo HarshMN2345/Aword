@@ -25,7 +25,7 @@ export const authOptions:AuthOptions={
            console.log("The account data is",account);
            return true; // or return a string or boolean based on your logic
         },
-        async session({session,user,token}:{session:CustomSession,user:CustomUser,token:JWT}){
+        async session({session,token}:{session:CustomSession,user:CustomUser,token:JWT}){
             session.user=token.user as CustomUser;
             return session;
         },
