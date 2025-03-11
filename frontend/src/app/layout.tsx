@@ -6,6 +6,7 @@ import ThemeSwitch from "@/components/themeSwitch";
 import SessionButton from "@/components/SessionButton";
 import { getServerSession } from "next-auth";
 import { authOptions, CustomSession } from "./api/auth/[...nextauth]/options";
+import SessionProvider from "@/providers/SessionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default async function RootLayout({
   const session:CustomSession|null=await getServerSession(authOptions);
   return (
     <html lang="en" suppressHydrationWarning>
+      <SessionProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
       >
@@ -47,6 +49,7 @@ export default async function RootLayout({
 
           </ThemeProvider>
       </body>
+      </SessionProvider>
     </html>
   );
 }

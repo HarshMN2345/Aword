@@ -1,6 +1,8 @@
-import {AuthOptions, ISODateString} from 'next-auth'
+import {Account, AuthOptions, ISODateString} from 'next-auth'
 import GoogleProvider from "next-auth/providers/google";
 import { JWT } from 'next-auth/jwt';
+import axios from 'axios';
+import { LOGIN_URL } from '@/lib/apiEndPoints';
 
 
 export interface CustomSession{
@@ -21,10 +23,25 @@ export const authOptions:AuthOptions={
         signIn:"/"
     },
     callbacks:{
-        async signIn({user,account}): Promise<string | boolean> {
-           console.log("The user data is",user);
-           console.log("The account data is",account);
-           return true; // or return a string or boolean based on your logic
+        async signIn({user,account}:{user:CustomUser,account:Account|null}): Promise<string | boolean> {
+            try{
+                console.log("The user data is",user);
+                console.log("The account data is",account);
+                const payload={
+                    email:user.email,
+                    name:user.name,
+                    oauth_id:account?.providerAccountId,
+                    provider:account?.provider,
+                    image:user?.image
+                }
+                const {data}=await axios.post(LOGIN_URL,payload);
+                user.id=data?.user?.id.toString();
+                user.token=data?.user?.token;
+                user.provider=data?.user?.provider;
+                return true;
+            }catch(error){
+               return false;
+            }
         },
         async session({session,token}:{session:CustomSession,user:CustomUser,token:JWT}){
             session.user=token.user as CustomUser;
