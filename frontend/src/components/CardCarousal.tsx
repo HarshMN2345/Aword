@@ -17,7 +17,7 @@ export function CardCarousal() {
   );
 }
 
-const DummyContent = ({ src }: { src: string }) => {
+const DummyContent = ({ }: { src: string }) => {
   return (
     <>
       {[...new Array(3).fill(1)].map((_, index) => {

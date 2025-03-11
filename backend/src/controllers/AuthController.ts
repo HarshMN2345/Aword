@@ -9,7 +9,7 @@ interface LoginPayload{
 class AuthController{
     static async login(request:Request, response:Response){
       try{
-        const body = request.body;
+        const body:LoginPayload = request.body;
       }catch(error){
 
       }
