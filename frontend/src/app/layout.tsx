@@ -45,7 +45,7 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <h1 className="top-0 left-0 m-4 p-1 bg-clip-text text-3xl font-bold text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
-          Aword
+          <Link href='/'>Aword</Link>
         </h1>
             <div className="absolute top-0 flex flex-row items-center gap-2 right-0 m-4 p-1">
               <Link href='/dashboard'>

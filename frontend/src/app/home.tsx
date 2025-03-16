@@ -6,6 +6,8 @@ import { Cover } from "@/components/ui/cover";
 import Button3D from "@/components/ui/homebutton";
 import { CustomSession } from "./api/auth/[...nextauth]/options";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { redirect } from "next/navigation";
+import { toast } from "sonner";
 
 interface HomeProps {
   session: CustomSession | null;
@@ -37,7 +39,19 @@ export default function NextHome({ session }: HomeProps) {
             <span className="dark:text-amber-300 text-red-500">Warp Speed</span>
           </Cover>
         </h1>
-        <Button3D text="Start Now" className="mt-6" /> {/* Added margin-bottom to create space */}
+        {session ? (
+  <Button3D
+    text="Start Now"
+    onClick={() => redirect('/dashboard')}
+    className="mt-4"
+  />
+) : (
+  <Button3D
+    text="Start Now"
+    onClick={() => toast.error("Please Login to Continue")}
+    className="mt-4"
+  />
+)}
       </div>
       <div className="mt-20 mb-10 px-4">
         <CardCarousal/>
