@@ -17,7 +17,6 @@ import { CustomUser } from "@/app/api/auth/[...nextauth]/options";
 import { toast } from "sonner";
 import axios from "axios";
 import { GROUP_CHAT_URL } from "@/lib/apiEndPoints";
-import { clear } from "console";
 import { clearCache } from "@/actions/common";
 export default function CreateChat({user}:{user:CustomUser}) {
     const [open, setOpen] = useState(false);
