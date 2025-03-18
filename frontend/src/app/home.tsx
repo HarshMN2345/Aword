@@ -27,7 +27,7 @@ export default function NextHome({ session }: HomeProps) {
         {/* <h1 className="top-0 left-0 m-4 p-1 bg-clip-text text-3xl font-bold text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
           Aword
         </h1> */}
-        {session?.user?.name && (
+        {session?.user?.name && ( 
           <TextGenerateEffect className="p-2 " words={`🔑Logged one is ${session.user.name}`} />
         )}
       </div>
