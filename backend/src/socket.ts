@@ -16,6 +16,7 @@ export function setupSocket(io:Server){
     io.on('connection',(socket:CustomSocket)=>{
         if(socket.room){
             socket.join(socket.room);
+            // socket.to(socket.room).emit('refresh', { message: 'A new user has joined the room' });
         }
         console.log("The socket is connected",socket.id);
         socket.on('message',async (data)=>{

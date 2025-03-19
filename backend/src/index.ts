@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8000;
 const server=createServer(app);
 const io=new Server(server,{
     cors:{
-        origin:["http://localhost:3000","https://admin.socket.io/","https://admin.socket.io/#/"],
+        origin:["http://localhost:3000","https://admin.socket.io/","https://admin.socket.io/#/","https://aword-a6mx.vercel.app"],
         credentials:true
     },
     transports: ['websocket'],
@@ -30,7 +30,7 @@ setupSocket(io);
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cors({
-    origin: ["http://localhost:3000", "https://admin.socket.io"],
+    origin: ["http://localhost:3000", "https://admin.socket.io","https://aword-a6mx.vercel.app"],
     credentials: true
 }));
 app.get('/',(req,res)=>{
