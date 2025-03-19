@@ -5,6 +5,7 @@ import LoginModal from "./auth/loginModal";
 
 export default function SessionButton({ session }: { session: any }) {
     return (
+        
         <>
             {session ? (
                 <Button variant="outline" onClick={() => signOut()}>
