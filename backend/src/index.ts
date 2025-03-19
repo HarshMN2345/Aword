@@ -7,6 +7,8 @@ import { createServer } from 'http';
 import { setupSocket } from './socket';
 import { createAdapter } from '@socket.io/redis-streams-adapter';
 import redis from "./config/redis.config";
+import { connectKafkaProducer } from "./config/kafka.config";
+import { consumeMessage } from "../helper";
 const { instrument } = require("@socket.io/admin-ui");
 // import redis from './config/redis.config';
 const PORT = process.env.PORT || 8000;
@@ -36,6 +38,12 @@ app.get('/',(req,res)=>{
 });
 app.options('*', cors()); // Enable preflight requests for all routes
 app.use("/api",Routes);
+connectKafkaProducer().catch((e)=>
+    console.log(`something went wirng`)
+)
+consumeMessage(process.env.KAFKA_TOPIC || 'chats').catch((err)=>
+    `the consumer error is ${err}`
+)
 server.listen(PORT,()=>{
     console.log("Port is running on port "+PORT);
 })
